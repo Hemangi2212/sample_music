@@ -10,8 +10,8 @@ import streamlit as st
 st.set_page_config(page_title="🎮 Techno Game Music Player", layout="centered")
 
 # Title and description
-st.title("🎧 Techno Game Music Stream")
-st.write("Press play to enjoy some high-energy techno music perfect for gaming!")
+#st.title("🎧 Techno Game Music Stream")
+#st.write("Press play to enjoy some high-energy techno music perfect for gaming!")
 st.set_page_config(page_title="Local Video Player", layout="centered")
 
 # App title
@@ -68,6 +68,7 @@ st.write("🔊 *Music by Pixabay (royalty-free)*")
 # a = np.array([1,2,3,4])
 
 # print(a)
+
 
 
 
