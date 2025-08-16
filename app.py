@@ -12,6 +12,7 @@ st.set_page_config(page_title="🎮 Techno Game Music Player", layout="centered"
 # Title and description
 st.title("🎧 Techno Game Music Stream")
 st.write("Press play to enjoy some high-energy techno music perfect for gaming!")
+st.video("https://cdn.pixabay.com/video/2024/06/17/213466_large.mp4")
 
 # Embed a techno music track from a public URL
 # (Use a direct link to a .mp3 file — example below is a royalty-free techno track)
@@ -51,5 +52,6 @@ st.write("🔊 *Music by Pixabay (royalty-free)*")
 # a = np.array([1,2,3,4])
 
 # print(a)
+
 
 
