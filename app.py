@@ -18,7 +18,7 @@ st.set_page_config(page_title="Local Video Player", layout="centered")
 st.title("🎥 Play Local Video")
 
 # Path to your local video file
-video_path = "video.mp4"  # ← Change this if your file has a different name
+video_path = "cat video.mp4"  # ← Change this if your file has a different name
 
 # Try to read and display the video
 try:
@@ -68,6 +68,7 @@ st.write("🔊 *Music by Pixabay (royalty-free)*")
 # a = np.array([1,2,3,4])
 
 # print(a)
+
 
 
 
