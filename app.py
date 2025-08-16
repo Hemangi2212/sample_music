@@ -1,76 +1,54 @@
-import streamlit as st 
-
-st.title("My first App Hema")
-st.image("little cat.gif")
-
-
 import streamlit as st
+import os
 
-# Set page config
-st.set_page_config(page_title="🎮 Techno Game Music Player", layout="centered")
+# Title
+st.title("🐾 Cat Adoption Center")
+st.write("Find your purrfect companion! 🐱💖")
 
-# Title and description
-#st.title("🎧 Techno Game Music Stream")
-#st.write("Press play to enjoy some high-energy techno music perfect for gaming!")
-st.set_page_config(page_title="Local Video Player", layout="centered")
+# Define video folder (put your videos in 'videos' folder inside project)
+VIDEO_DIR = "videos"
 
-# App title
-st.title("🎥 Play Local Video")
-
-# Path to your local video file
-video_path = "cat video.mp4"  # ← Change this if your file has a different name
-
-# Try to read and display the video
-try:
-    with open(video_path, "rb") as f:
-        video_bytes = f.read()
-    st.video(video_bytes)
-except FileNotFoundError:
-    st.error(f"❌ File '{video_path}' not found. Please check the filename and make sure it's in the same folder.")
-except Exception as e:
-    st.error(f"❌ An error occurred: {e}")
-
-# Embed a techno music track from a public URL
-# (Use a direct link to a .mp3 file — example below is a royalty-free techno track)
-audio_url = "https://pixabay.com/music/upbeat-hopeful-corporate-uplifting-and-inspiring-389391/.mp3"
-
-# HTML audio player
-audio_html = f"""
-<audio controls autoplay loop style="width: 100%;">
-  <source src="{audio_url}" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
-"""
-
-st.markdown(audio_html, unsafe_allow_html=True)
-
-# Optional: Add some cool background style (simple CSS)
-st.markdown(
-    """
-    <style>
-    .stApp {
-        background-color: #0f0f23;
-        color: #00ff41;
-        font-family: 'Courier New', monospace;
+# Sample Data
+cats = [
+    {
+        "name": "Luna",
+        "breed": "Persian",
+        "age": "2 Years",
+        "status": "Available",
+        "video": os.path.join(VIDEO_DIR, "luna.mp4")
+    },
+    {
+        "name": "Milo",
+        "breed": "Siamese",
+        "age": "1 Year",
+        "status": "Adopted",
+        "video": os.path.join(VIDEO_DIR, "milo.mp4")
+    },
+    {
+        "name": "Bella",
+        "breed": "Maine Coon",
+        "age": "3 Years",
+        "status": "Available",
+        "video": os.path.join(VIDEO_DIR, "bella.mp4")
     }
-    h1, h2, h3 {
-        color: #00ff41;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+]
 
-# Footer
-st.write("🔊 *Music by Pixabay (royalty-free)*")
-# import numpy as np
+# Display Cats
+for cat in cats:
+    with st.container():
+        st.subheader(cat["name"])
+        st.write(f"**Breed:** {cat['breed']}")
+        st.write(f"**Age:** {cat['age']}")
+        st.write(f"**Status:** {cat['status']}")
 
-# a = np.array([1,2,3,4])
+        # Play local video
+        if os.path.exists(cat["video"]):
+            st.video(cat["video"])
+        else:
+            st.warning(f"Video not found for {cat['name']}")
 
-# print(a)
-
-
-
-
-
-
+        # Adoption button
+        if cat["status"] == "Available":
+            if st.button(f"Adopt {cat['name']}", key=cat["name"]):
+                st.success(f"🎉 Congratulations! You have adopted {cat['name']}!")
+        st.markdown("---")
