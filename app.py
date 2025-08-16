@@ -15,7 +15,7 @@ st.write("Press play to enjoy some high-energy techno music perfect for gaming!"
 
 # Embed a techno music track from a public URL
 # (Use a direct link to a .mp3 file — example below is a royalty-free techno track)
-audio_url = "https://cdn.pixabay.com/download/audio/2022/01/18/audio_7e8f9d1b25.mp3?filename=techno-dance-119697.mp3"
+audio_url = "https://pixabay.com/music/upbeat-hopeful-corporate-uplifting-and-inspiring-389391/"
 
 # HTML audio player
 audio_html = f"""
@@ -51,3 +51,4 @@ st.write("🔊 *Music by Pixabay (royalty-free)*")
 # a = np.array([1,2,3,4])
 
 # print(a)
+
